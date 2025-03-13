@@ -30,6 +30,7 @@ class TodoController extends GetxController {
     todolist.add(TodoModel(title: title, subtitle: subtitle));
     textEditingController.clear();
     subtitleController.clear();
+    storageService.write('todoList', todolist.toJson());
   }
 
   void toggleTodo(int index) {
