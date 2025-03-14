@@ -1,23 +1,35 @@
+import 'dart:convert';
+
+
 class TodoModel {
+  String uid;
+  String docId;
   String title;
   String subtitle;
-  bool isDone;
+  bool isCompelted;
+
 
   TodoModel({
+    this.uid = '',
+    this.docId = '',
     required this.title,
     this.subtitle = '',
-    this.isDone = false,
-  });
+    this.isCompelted = false});
+
 
   Map<String, dynamic> toJson() => {
     'title': title,
     'subtitle': subtitle,
-    'isDone': isDone,
+    'isCompelted': isCompelted,
+    'uid': uid,
+    'docId':docId,
   };
 
-  TodoModel.fromJson(Map<String, dynamic> json) :
-        title = json['title'],
-        subtitle = json['subtitle'],
-        isDone = json['isDone'];
 
+  TodoModel.fromJson(Map<String, dynamic> json)
+    : title = json['title'],
+      subtitle = json['subtitle'],
+      isCompelted = json['isCompelted'],
+      uid = json['uid'],
+      docId = json['docId'];
 }
